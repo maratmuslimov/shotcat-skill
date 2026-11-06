@@ -1,0 +1,9 @@
+{
+    "name": "shotcat",
+    "description": "Make App Store preview videos, App Store and Google Play screenshots and vertical social videos of the app in your repo with the Shotcat CLI, and publish them.",
+    "version": "1.0.0",
+    "author": { "name": "Shotcat", "email": "support@shotcat.app", "url": "https://shotcat.app" },
+    "homepage": "https://shotcat.app/cli",
+    "license": "MIT",
+    "keywords": ["app-store", "screenshots", "app-preview", "marketing", "video", "ios", "android"]
+}

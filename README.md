@@ -1,0 +1,47 @@
+# Shotcat skill for Claude Code
+
+Teach Claude Code (and Codex) to make **App Store preview videos, App Store and Google Play
+screenshots and vertical social videos** (Reels, TikTok, Shorts) of the app in your repo, with
+3D devices, captions, taps, hook clips and voiceovers, and to publish them to App Store Connect,
+YouTube, TikTok and Instagram. It drives the [Shotcat CLI](https://shotcat.app/cli); everything
+renders on your machine.
+
+> "Record the onboarding in the Simulator and make an App Store preview and a TikTok out of it."
+
+## Install
+
+**Claude Code (plugin):**
+
+```
+/plugin marketplace add maratmuslimov/shotcat-skill
+/plugin install shotcat@shotcat
+```
+
+Claude then uses the skill on its own when you ask for previews, screenshots or social videos,
+or you can call it with `/shotcat:shotcat`.
+
+**With the Shotcat CLI** (Claude Code and Codex, keeps the skill updated with `shotcat update`):
+
+```bash
+curl -fsSL https://shotcat.app/install.sh | sh
+shotcat skill install            # ~/.claude/skills and ~/.codex/skills
+shotcat skill install --project  # only this repo: .claude/skills and .agents/skills
+```
+
+**By hand:** copy `skills/shotcat/SKILL.md` to `~/.claude/skills/shotcat/SKILL.md`.
+
+## What you need
+
+- The Shotcat CLI (`shotcat doctor` checks ffmpeg, Chrome and the GPU).
+- A free Shotcat account for renders (`shotcat login`, a device code you approve in the browser).
+  Free renders carry a small shotcat.app tag on the device; a Launch Pack or Lifetime removes it.
+- For recordings: Xcode's iOS Simulator or an Android emulator/phone with `adb`.
+
+## Links
+
+[shotcat.app](https://shotcat.app) · [CLI](https://shotcat.app/cli) · [Studio](https://studio.shotcat.app) ·
+[Privacy](https://shotcat.app/privacy) · support@shotcat.app
+
+## License
+
+MIT

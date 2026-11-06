@@ -1,0 +1,15 @@
+{
+    "name": "shotcat",
+    "description": "Shotcat for Claude Code: App Store previews, store screenshots and social videos of your app, from the terminal.",
+    "owner": { "name": "Shotcat", "email": "support@shotcat.app" },
+    "plugins": [
+        {
+            "name": "shotcat",
+            "source": "./",
+            "description": "Make App Store preview videos, App Store and Google Play screenshots and vertical social videos of the app in your repo with the Shotcat CLI, and publish them.",
+            "version": "1.0.0",
+            "category": "productivity",
+            "tags": ["app-store", "screenshots", "app-preview", "marketing", "video", "ios", "android"]
+        }
+    ]
+}
