@@ -9,8 +9,9 @@ Shotcat turns screen recordings and screenshots of an app into store previews, s
 and social videos with 3D devices. You drive it with the `shotcat` CLI; a project is one
 `shotcat.json` next to the media. Everything renders locally in headless Chrome.
 
-Check the CLI first: `shotcat --version` (otherwise install it: `curl -fsSL https://shotcat.app/install.sh | sh`). `shotcat doctor`
-checks ffmpeg, Chrome, GPU and sign-in.
+Check the CLI first: `shotcat --version`. If it's missing, ask the user to install it themselves from
+https://shotcat.app/cli (the installer is a script they run in their terminal; don't run it for
+them). `shotcat doctor` checks ffmpeg, Chrome, GPU and sign-in.
 
 ## Workflow
 
@@ -112,8 +113,9 @@ Only the `social-*` and `web-*` formats get these; store previews must show the 
   session; it prints the token and saves nothing) and stores it as the CI secret
   `SHOTCAT_TOKEN`. When set, it wins over any saved sign-in. Never print, log or commit it; only
   run `--print-token` when the user asks for a CI token.
-- GitHub Actions: install the CLI in the job (`curl -fsSL https://shotcat.app/install.sh | sh`),
-  then `shotcat render`; the Shotcat GitHub Action does the same and uploads the files as an artifact. fastlane: the
+- GitHub Actions: the workflow installs the CLI with the installer from https://shotcat.app/cli,
+  then runs `shotcat render`; the Shotcat GitHub Action does the same and uploads the files as an
+  artifact. fastlane: the
   `fastlane-plugin-shotcat` gem's `shotcat` action renders and copies screenshots into
   `fastlane/screenshots/<locale>/` (deliver) and `fastlane/metadata/android/<locale>/images/`
   (supply).

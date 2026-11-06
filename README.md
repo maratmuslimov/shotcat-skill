@@ -20,7 +20,8 @@ renders on your machine.
 Claude then uses the skill on its own when you ask for previews, screenshots or social videos,
 or you can call it with `/shotcat:shotcat`.
 
-**With the Shotcat CLI** (Claude Code and Codex, keeps the skill updated with `shotcat update`):
+**With the Shotcat CLI** (Claude Code and Codex, keeps the skill updated with `shotcat update`).
+The installer downloads the CLI from shotcat.app and checks its SHA-256:
 
 ```bash
 curl -fsSL https://shotcat.app/install.sh | sh
@@ -36,6 +37,21 @@ shotcat skill install --project  # only this repo: .claude/skills and .agents/sk
 - A free Shotcat account for renders (`shotcat login`, a device code you approve in the browser).
   Free renders carry a small shotcat.app tag on the device; a Launch Pack or Lifetime removes it.
 - For recordings: Xcode's iOS Simulator or an Android emulator/phone with `adb`.
+
+## What it runs and where data goes
+
+This plugin is one skill: instructions, no code, hooks or MCP servers. Following it, Claude runs
+commands in your terminal, with your usual permission prompts:
+
+- **The Shotcat CLI** (`shotcat …`). The skill doesn't install it: if it's missing, Claude asks you
+  to install it yourself (above). `shotcat update` reinstalls it; the skill asks you first.
+- **Recording tools** you already have: `xcrun simctl` (iOS Simulator), `adb` (Android), `ffprobe`.
+
+Data: renders happen on your machine. The CLI talks to Shotcat's servers (studio.shotcat.app) to
+sign in (email and a device code), to check your plan, and, only when you ask, to upload a project
+for Catpilot or to publish a video to YouTube, TikTok or Instagram through the accounts you
+connected. The skill tells Claude to ask before posting anything publicly and never to print or
+commit CI tokens. See the [privacy policy](https://shotcat.app/privacy).
 
 ## Links
 
